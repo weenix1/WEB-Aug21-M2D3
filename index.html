@@ -253,7 +253,16 @@
           <div class="card col-6 col-md-3 col-lg-2 py-3">
             <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="hotbadge">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div class="card col-6 col-md-3 col-lg-2">
+            <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
+            <div class="card-body">
+              <p class="hotbadge ">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
@@ -271,16 +280,7 @@
           <div class="card col-6 col-md-3 col-lg-2">
             <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
             <div class="card-body">
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </div>
-          <div class="card col-6 col-md-3 col-lg-2">
-            <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
-            <div class="card-body">
-              <p class="card-text">
+              <p class="hotbadge">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
@@ -290,7 +290,7 @@
           <div class="card col-6 col-md-3 col-lg-2 py-3">
             <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="hotbadge">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
@@ -299,7 +299,7 @@
           <div class="card col-6 col-md-3 col-lg-2">
             <img src="/img/beach.jpeg" class="img-fluid" alt="beach" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="hotbadge">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
@@ -578,7 +578,12 @@
           <!-- Grid column -->
           <div class="col-md-2 mb-3">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">Contact</a>
+              <a data-toggle="modal" data-target="#modal"
+              >Contact Us</a>
+             <!--  Ex 13) Create a modal view with a message and a email field -->
+
+
+
             </h6>
           </div>
           <!-- Grid column -->
@@ -649,6 +654,42 @@
     </footer>
 
 
+    <div class="modal" tabindex="-1" role="dialog" id="modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Message</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="message">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <script>
 
@@ -671,10 +712,31 @@
                 
                 document.querySelector("footer").appendChild(span)
             }
+
+          /*   Ex 15) Create a function that adds a "HOT" badge to all the "Welcome Summer" offers */
+   const addBadge = function(){
+    let tripsSummer = document.getElementsByClassName('hotbadge')
+    console.log(tripsSummer)
+
+
+    let badge = document.createElement('span')
+    badge.classList.add='badge badge-pill badge-primary'
+
+    for(let i=0; i<tripsSummer.length;i++){
+      tripsSummer[i].appendChild(badge)
+
+    }
+
+    
+  }
+
+
+
 window.onload = function () {
             
            
   countTravelNum()
+  addBadge()
             }
 
 
